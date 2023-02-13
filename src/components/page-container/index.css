@@ -1,0 +1,7 @@
+.scroll_container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    background-image: url("./imgs/section_one_bg.webp");
+    background-attachment: fixed;
+  }

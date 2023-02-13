@@ -1,0 +1,54 @@
+.header_config {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    max-width: 1300px;
+    gap: 20px;
+    z-index: 1;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_link {
+    border-radius: 22px;
+}
+
+.nav_link.active {
+    background-color: white;
+    color: black;
+    border-radius: 22px;
+    transition: all .5s ease;
+    padding: 5px 20px;
+}
+
+.nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+.nav li, a {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav a {
+    padding: 0px 20px;
+}
+
+
+
