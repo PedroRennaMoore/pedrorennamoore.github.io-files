@@ -5,3 +5,12 @@
     background-image: url("./imgs/section_one_bg.webp");
     background-attachment: fixed;
   }
+
+.scroll_container::-webkit-scrollbar {
+    display: none;
+  }
+  
+.scroll_container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }

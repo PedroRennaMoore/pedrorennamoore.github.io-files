@@ -1,0 +1,158 @@
+.about_me_section {
+    height: 100%;
+    scroll-snap-align: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 110px 20px 20px 20px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.about_me_content {
+    display: flex;
+    height: 560px;
+    width: 100%;
+    gap: 10px;
+     
+}
+
+.about_me_block_left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 30%; 
+}
+
+.about_me_header {
+    display: none;
+    height: 30%;
+    background-image: linear-gradient(to bottom, white, rgb(233, 233, 233));
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    box-shadow: 4px 4px 20px black;
+    opacity: 0;
+}
+
+.about_me_header.active {
+    display: flex;
+    animation: headerShow 0.6s ease forwards;
+}
+
+@keyframes headerShow {
+    from {transform: translateX(-400px);}
+    to {transform: translateX(0); opacity: 1;}
+}
+
+.about_me_img {
+    width: 130px;
+    height: 130px;
+    border-radius: 130px;
+    overflow: hidden;
+}
+
+.about_me_header_text p {
+    font-size: 13px;
+}
+
+.nactionality {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.about_me_side {
+    height: 70%;
+    background-image: linear-gradient(to bottom, white, rgb(233, 233, 233));
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 4px 4px 20px black;
+    opacity: 0;
+}
+
+.about_me_side.active {
+    display: flex;
+    animation: sideShow 0.6s ease forwards;
+}
+
+@keyframes sideShow {
+    from {transform: translateY(400px);}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+.about_me_skills {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about_me_skills ul {
+    padding-left: 20px;
+    list-style: disc
+}
+
+.about_me_skills li {
+    font-size: 14px;
+}
+
+.about_me_block_right {
+    width: 70%;
+    background-image: linear-gradient(to bottom, white, rgb(233, 233, 233));
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 4px 4px 20px black;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    opacity: 0;
+}
+
+.about_me_block_right.active {
+    display: flex;
+    animation: rightShow 0.6s ease forwards;
+}
+
+@keyframes rightShow {
+    from {transform: translateX(400px);}
+    to {transform: translateX(0); opacity: 1;}
+}
+
+.about_me_right_text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about_me_right_text p {
+    font-size: 14px;
+}
+
+.about_me_buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.about_me_buttons button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.about_button_contact {
+    border: 3px solid #1A2955;
+    color: #1A2955;
+}
+
+.about_button_download {
+    background-image: radial-gradient(#233E81, #1A2955);
+    color: white;
+    border: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.485);
+}
+
+.section_effect {
+    display: none;
+}

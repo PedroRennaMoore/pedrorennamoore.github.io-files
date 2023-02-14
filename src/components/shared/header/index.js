@@ -17,7 +17,7 @@ function Header() {
     const handleScroll = () => {
         links.forEach(link => {
             let elementTop = document.querySelector(link.href).getBoundingClientRect().top;
-            if(elementTop === 0) {
+            if(elementTop <= 200 && elementTop >= -200) {
                 setActiveLink(link.id)
             }
         })

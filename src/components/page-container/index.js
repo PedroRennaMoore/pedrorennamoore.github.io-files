@@ -9,7 +9,7 @@ import Header from "../shared/header";
 
 function PageContainer(props) {
     return (
-        <div className="scroll_container">
+        <div className="scrollers scroll_container">
             <Header/>
             <PageSection styles="section_one" id="home">
                 <SectionOne/>
@@ -18,6 +18,7 @@ function PageContainer(props) {
             <PageSection styles="section_two" id="about">
                 <SectionTwo/>
             </PageSection>
+            
             <PageSection styles="section_three" id="portifolio"/>
             <PageSection styles="section_four" id="contact"/>
         </div>
