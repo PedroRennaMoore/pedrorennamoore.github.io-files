@@ -4,6 +4,7 @@
     scroll-snap-type: y mandatory;
     background-image: url("./imgs/section_one_bg.webp");
     background-attachment: fixed;
+    
   }
 
 .scroll_container::-webkit-scrollbar {

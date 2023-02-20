@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { HashLink } from "react-router-hash-link";
 import SocialIcons from "../social-icons";
 import "./index.css";
+import TransitionEffect from "./transition-effect";
 
 const links = [
     { id: "home", label: "Pedro Moore", href: "#home",},
@@ -12,6 +13,7 @@ const links = [
 
 function Header() {
     
+    const [ activeEffect, setActiveEffect] = useState("")
     const [ activeLink, setActiveLink ] = useState(links[0].id)
 
     const handleScroll = () => {
@@ -31,16 +33,33 @@ function Header() {
         };
       }, []);
 
+      function changeSectionEffect() {
+        setActiveEffect("active")
+        setTimeout(() => {
+            setActiveEffect("")
+        }, 1000);
+        
+      }
+
     return(
         <div className="header_config">
+            <TransitionEffect active={activeEffect}/>
             <header>
                 <div className="nav">
                     <ul>
                         {links.map(link => {
                             return <li  key={link.id}>
                                         <HashLink
+                                        onClick={changeSectionEffect}
                                         className={activeLink === link.id ? "nav_link active" : "nav_link"}
-                                        smooth to={link.href}
+                                        to={link.href}
+                                        scroll={(el) => {
+                                            setTimeout(() => {
+                                                el.scrollIntoView({
+                                                    behavior: "auto"
+                                                });
+                                            }, 600 );
+                                        }}
                                         >{link.label}</HashLink>
                                    </li>
                         })}

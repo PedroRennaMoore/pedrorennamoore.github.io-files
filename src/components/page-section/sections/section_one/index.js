@@ -3,12 +3,12 @@ import "./index.css"
 import sectionOneImg from "./imgs/section_one_img.png"
 
 
-function SectionOne() {
+function SectionOne(props) {
 
     return (
         <div className="section_one_container">
             <div className="section_one_content">
-                <div className="text_content">
+                <div className={`text_content ${props.active}`}>
                     <div className="texts">
                         <h1>Frontend</h1>
                         <h2>Developer</h2>
@@ -16,7 +16,7 @@ function SectionOne() {
                         <p className="p_two">one line of code at a time</p>
                     </div>
                 </div>
-                <div className="img_content">
+                <div className={`img_content ${props.active}`}>
                     <img src={sectionOneImg} width="400" alt="" />
                 </div>
             </div>

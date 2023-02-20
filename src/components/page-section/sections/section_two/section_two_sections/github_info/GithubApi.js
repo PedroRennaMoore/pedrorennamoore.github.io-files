@@ -49,8 +49,7 @@ function GithubApi(props) {
                         </div>
                         <div className="github_last_contributions">
                             <ul>
-                                {gitHubEvents.filter((element, index) => index <= 5).map(gitEvent => {
-                                    console.log(gitEvent)
+                                {gitHubEvents.filter((element, index) => index <= 10).map(gitEvent => {
                                     return <li key={gitEvent.id}>
                                                 <h3><a target="_blank" rel="noreferrer" href={`https://github.com/PedroRennaMoore/${gitEvent.repo.name.slice(16)}`}>{gitEvent.repo.name.slice(16)}</a></h3>
                                                 <p>Date: <b>{gitEvent.created_at.slice(0, 10)}</b> Hour: <b>{gitEvent.created_at.slice(11,16)}</b> {gitEvent.type} </p>

@@ -7,35 +7,36 @@
     overflow: hidden;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .github_content {
     border-radius: 10px;
     height: 560px;
-    width: 100%;
     display: none;
     flex-direction: column;
     align-items: center;
     opacity: 0;
     box-shadow: 4px 4px 20px black;
+    overflow: hidden;
 }
 
 .github_content.active {
     display: flex;
-    animation: gitShow .8s ease forwards;
+    animation: gitShow .6s ease forwards;
 }
 
 @keyframes gitShow {
-    from {transform: translateY(400px);}
+    from {transform: translateY(200px);}
     to {transform: translateY(0); opacity: 1;}
 }
 
 .github_header {
+    width: 100%;
     display: flex;
     gap: 20px;
     align-items: center;
     padding: 10px;
-    width: 100%;
     border-radius: 10px 10px 0 0;
     background-color: #24292F;
 }
@@ -47,11 +48,25 @@
 .github_body {
     height: 100%;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-end;
     background-color: white;
-    width: 100%;
     border-radius: 0 0 10px 10px;
-    overflow: auto;
+    overflow-y: auto;
+    padding: 10px 20px 10px 20px;
+}
+
+.github_body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.github_body::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.github_body::-webkit-scrollbar-thumb {
+    background-color: rgb(198, 198, 198);   
 }
 
 .github_body h4 {
