@@ -28,6 +28,18 @@
     width: 400px;
     display: flex;
     align-items: center;
+    animation: fadeOut .1s ease;
+    opacity: 0;
+    transition: 1s all;
+}
+
+.text_content.active {
+    animation: showHeaderText 1s ease .2s forwards;
+}
+
+@keyframes showHeaderText {
+    from {transform: translateX(-300px);}
+    to {transform: translateX(0); opacity: 1;}
 }
 
 .texts {
@@ -35,7 +47,7 @@
 }
 
 .text_content h1 {
-    color: white;
+    color: #EF6461;
     font-size: 80px;
     letter-spacing: 1px;
     font-weight: 600;
@@ -44,7 +56,7 @@
 }
 
 .text_content h2 {
-    color: white;
+    color: #EF6461;
     font-size: 60px;
     font-weight: 200;
     letter-spacing: 15px;
@@ -52,7 +64,7 @@
 }
 
 .text_content .p_one {
-    color: white;
+    color: #EF6461;
     font-size: 41px;
     letter-spacing: 2px;
     font-weight: 400;
@@ -60,11 +72,24 @@
 }
 
 .text_content .p_two {
-    color: white;
+    color: #EF6461;
     font-size: 26.5px;
     letter-spacing: 3px;
     font-weight: 200;
     line-height: 200%;
+}
+
+.img_content {
+    opacity: 0;
+}
+
+.img_content.active {
+    animation: showHeaderImg 1s ease .2s forwards;
+}
+
+@keyframes showHeaderImg {
+    from {transform: translateY(300px);}
+    to {transform: translateY(0); opacity: 1;}
 }
 
 /* -- MOUSE SCROLL -- */
@@ -78,24 +103,34 @@
     bottom: 10px;
     left: 50%;
     transform: translate(-50%, 0);
+    opacity: 0;
+}
+
+.scroll_content.active {
+    animation: showScroll 1s ease .2s forwards;
+}
+
+@keyframes showScroll {
+    from {}
+    to {opacity: 1;}
 }
 
 .mouse_container {
     border-radius: 40% 40% 40% 40%;
-    border: 2px solid white;
+    border: 3px solid #313638;
     width: 31.5px;
     height: 42px;
     position: relative;
 }
 
 .mouse_button {
-    width: 3px;
+    width: 4px;
     height: 6px;
     border-radius: 10px;
-    background-color: white;
+    background-color: #313638;
     position: absolute;
     top: 5px;
-    left: 13px;
+    left: 11.5px;
     animation: scrolling 2s infinite ease;
 }
 
@@ -108,9 +143,46 @@
 
 .mouse_text {
     font-size: 13px;
-    color: white;
+    color: #313638;
     letter-spacing: 3px;
-    font-weight: 200;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 1100px) {
+    .img_content img {
+        width: 300px;
+    }
+    .section_one_content {
+        padding: 20px;
+    }
+    .section_one_content {
+        justify-content: space-evenly;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .img_content img {
+        width: 250px;
+    }
+    .section_one_content {
+        justify-content: center;
+        gap: 50px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .text_content h1 {
+        font-size: 45px;
+    }
+    .text_content h2 {
+        font-size: 24.5px;
+    }
+    .text_content .p_one {
+        font-size: 22.2px;
+    }
+    .text_content .p_two {
+        font-size: 13px;
+    }
 }
 
 

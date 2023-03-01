@@ -3,27 +3,29 @@
     flex-direction: column;
     height: 100%;
     justify-content: center;
-    max-width: 1300px;
     margin: 0 auto;
     padding: 110px 20px 0 20px;
+    max-width: 1300px;
     position: relative;
     z-index: 0;
     overflow: hidden;
+    align-items: center;
 }
 
 .section_three_content {
-    width: 100%;
-    height: 90%;
+    width: fit-content;
+    height: 85%;
     border-radius: 10px;
-    box-shadow: 4px 4px 20px black;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     opacity: 0;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.27);
+    width: 100%;
 }
 
 .section_three_content.active {
-    animation: showSectionThree 1s ease forwards;
+    animation: showSectionThree 1s ease .2s forwards;
 }
 
 @keyframes showSectionThree {
@@ -31,51 +33,54 @@
 }
 
 .my_projects_header {
-   padding: 10px;
-   border-radius: 10px 10px 0 0;
-   background-image: linear-gradient(to right, #373D88, #632871);
-   display: flex;
-   justify-content: center;
+    background-color: #E4B363;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }
 
 .my_projects_body {
-    background-color: rgb(247, 247, 247);
-    padding: 40px;
+    background-color: #E8E9EB;
+    padding: 40px 40px 40px 40px;
     overflow: auto;
     overflow-x: hidden;
     display: flex;
-    flex-direction: column;
     gap: 20px;
-    border-radius: 0 0 10px 10px;
     height: 100%;
 }
 
 .projects_item {
     display: flex;
-    box-shadow: 4px 4px 20px rgb(156, 156, 156);
-    gap: 20px;
+    flex-direction: column;
+    gap: 10px;
     opacity: 0;
+    align-items: center;
+    padding: 0 10px 10px 10px;
 }
 
 .projects_item.active {
-    animation: showProjectsLeft 0.6s ease forwards
+    animation: showProjectsLeft 1s ease .2s forwards
 }
 
 @keyframes showProjectsLeft {
-    from {transform: translateX(400px);}
+    from {transform: translateX(150px);}
     to {transform: translateX(0); opacity: 1;}
 }
 
 .projects_item:nth-child(even).active {
-    animation: showProjectsRight 0.6s ease forwards
+    animation: showProjectsRight 1s ease .2s forwards
 }
 
 @keyframes showProjectsRight {
-    from {transform: translateX(-400px);}
+    from {transform: translateX(150px);}
     to {transform: translateX(0); opacity: 1;}
 }
 
-
+.projects_item h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #313638;
+}
 
 .my_projects_body::-webkit-scrollbar {
     width: 10px;
@@ -86,7 +91,7 @@
 }
 
 .my_projects_body::-webkit-scrollbar-thumb {
-    background-color: rgb(198, 198, 198);   
+    background-color: rgb(255, 255, 255);   
 }
 
 .my_projects_title {
@@ -114,62 +119,37 @@
     text-transform: uppercase;
 }
 
-.my_projects_itens {
-    display: flex;
-    justify-content: center;
-}
-
 .project_img {
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.233);
+    height: 220px;
 }
 
 .project_img img {
+    width: 400px;
     height: 100%;
+}
+
+.my_projects_itens {
     width: 100%;
 }
 
 .my_projects_itens ul {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: fit-content;
-}
-
-.my_projects_itens li {
-    border-radius: 10px;
-    padding: 20px;
-    background-color: white;
-}
-
-.project_text {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 520px;
-    justify-content: center;
-}
-
-.project_text h4 {
-    color: black;
-    font-weight: 600;
-    font-size: 20px;
-}
-
-.project_technologies {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .project_technologies_title {
-    color: black;
+    color: #313638;
     font-weight: 400;
 }
 
 .project_technologies_tech {
-    color: #632871;
+    color: #313638;
     font-weight: 600;
 }   
 
@@ -184,7 +164,7 @@
 }
 
 .project_links p {
-    background-color: #373D88;
+    background-color: #EF6461;
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 13px;
@@ -196,6 +176,62 @@
     font-size: 13px;
 }
 
+@media only screen and (max-width: 560px) {
+    .project_img {
+        height: 150px;
+    }
+    .project_img img {
+        width: 280px;
+    }
+    .project_technologies_tech {
+        font-size: 13px;
+    }
+}
 
+@media only screen and (max-width: 370px) {
+    .project_img {
+        height: 120px;
+    }
+    .project_img img {
+        width: 230px;
+    }
+    .project_technologies_tech {
+        font-size: 11px;
+    }
+    .my_projects_header h4 {
+        font-size: 18px;
+    }
+    .projects_item h4 {
+        font-size: 17px;
+    }
+    .project_links a {
+        font-size: 12px;
+    }
+    .projects_links p {
+        font-size: 12px;
+    }
+}
 
+@media only screen and (max-width: 320px) {
+    .project_img {
+        height: 100px;
+    }
+    .project_img img {
+        width: 190px;
+    }
+    .project_technologies_tech {
+        font-size: 9px;
+    }
+    .my_projects_header h4 {
+        font-size: 15px;
+    }
+    .my_projects_header p  {
+        font-size: 10px;
+    }
+    .projects_item h4 {
+        font-size: 15px;
+    }
+    
+
+}
 

@@ -20,7 +20,7 @@ function SectionOne(props) {
                     <img src={sectionOneImg} width="400" alt="" />
                 </div>
             </div>
-            <div className="scroll_content">
+            <div className={`scroll_content ${props.active}`}>
                     <div className="mouse_container">
                         <div className="mouse_structure">
                             <div className="mouse_button"></div>

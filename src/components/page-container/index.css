@@ -2,16 +2,14 @@
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
-    background-image: url("./imgs/section_one_bg.webp");
-    background-attachment: fixed;
-    
-  }
+    background-color: #E0DFD5;
+}
 
 .scroll_container::-webkit-scrollbar {
-    display: none;
-  }
-  
+  display: none;
+}
+
 .scroll_container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

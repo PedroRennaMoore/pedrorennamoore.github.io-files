@@ -2,21 +2,23 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
-}
-
-header {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: fixed;
+    background-color: #313638;
     width: 100%;
-    max-width: 1300px;
-    gap: 20px;
     z-index: 1;
 }
 
+header {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 1300px;
+}
+
 .nav {
+    padding-left: 20px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -24,11 +26,14 @@ header {
 
 .nav_link {
     border-radius: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .nav_link.active {
-    background-color: white;
-    color: black;
+    background-color: #E8E9EB;
+    color: #313638;
     border-radius: 22px;
     transition: all .5s ease;
     padding: 5px 20px;
@@ -36,19 +41,178 @@ header {
 
 .nav ul {
     display: flex;
-    align-items: center;
     list-style-type: none;
 }
 
 .nav li, a {
     font-size: 20px;
     text-decoration: none;
-    color: white;
+    color: #E8E9EB;
 }
 
 .nav a {
-    padding: 0px 20px;
+    padding: 5px 20px;
 }
 
+.dots_container {
+    display: flex;
+    gap: 5px;
+}
 
+.dots {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid #E8E9EB;
+    background-color: transparent;
+}
 
+.dots.active {
+    background-color: #313638;
+}
+
+.mobile_nav {
+    display: none;
+    width: 100%;
+    justify-content: center;
+}
+
+.mobile_nav_content {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    padding: 15px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile_nav ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.mobile_nav li {
+    list-style: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #E8E9EB;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    overflow: hidden;
+    position: relative;
+}
+
+.mobile_nav_item_about a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile_nav_item_about .dots {
+    width: 15px;
+    height: 15px;
+}
+
+.mobile_nav_link.active {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about_mobile_itens {
+    position: fixed;
+    top: 81px;
+    display: none;
+    gap: 10px;
+}
+
+.about_mobile_itens.active {
+    animation: showMobileAbout .7s ease forwards;
+    display: flex
+}
+
+.about_mobile_item.active {
+    background-color: #EF6461;
+    color: white;
+}
+
+@keyframes showMobileAbout {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+.about_mobile_itens span {
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    background-color: #E8E9EB;
+    color: #313638;
+    cursor: pointer;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.315);
+}
+
+@media only screen and (max-width: 800px) {
+
+    .header_config {
+        overflow: visible;
+    }
+    header {
+        padding: 10px;
+    }
+    .nav {
+        display: none;
+    }
+    .mobile_nav {
+        display: flex;
+    }
+    .scroll_content {
+        display: none;
+    }
+    .section_one_container {
+        padding: 90px 20px 40px 20px;
+    }
+    .about_me_section {
+        padding: 110px 20px 70px 20px;
+    }
+    .github_section {
+        padding: 130px 20px 100px 20px;
+    }
+    .leetcode_section {
+        padding: 130px 20px 100px 20px;
+    }
+    .section_three_container {
+        padding: 110px 20px 100px 20px;
+    }
+    .section_four_container {
+        padding: 110px 20px 20px 20px;
+    }
+    .scroll_container {
+        overflow: hidden;
+    }
+    .section_two_container {
+        overflow: hidden;
+    }
+    header .social_icons {
+        display: none;
+    }
+
+  }
+
+  @media only screen and (max-width: 350px) {
+    .section_four_container {
+        padding: 110px 10px 20px 10px;
+    }
+}

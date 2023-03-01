@@ -5,7 +5,7 @@
     scroll-snap-align: center;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 110px 20px 20px 20px;
+    padding: 130px 20px 20px 20px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -17,17 +17,21 @@
     display: none;
     flex-direction: column;
     align-items: center;
-    box-shadow: 4px 4px 20px black;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.404);
     opacity: 0;
+    max-width: 700px;
+    width: 100%;
+    max-height: 560px;
+    height: 100%;
 }
 
 .leetcode_content.active {
     display: flex;
-    animation: leetShow .6s ease forwards;
+    animation: leetShow 1s ease .2s forwards;
 }
 
 @keyframes leetShow {
-    from {transform: translateY(200px);}
+    from {transform: translateY(150px);}
     to {transform: translateY(0); opacity: 1;}
 }
 
@@ -54,14 +58,13 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
+    
     background-color: rgb(240, 240, 240);
     width: 100%;
     border-radius: 0 0 10px 10px;
-    overflow: auto;
     padding: 40px;
     gap: 20px;
+    overflow-x: auto;
 }
 
 .leetcode_user_info {
@@ -69,11 +72,13 @@
     gap: 20px;
     flex-direction: row-reverse;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     align-items: center;
     background-color: white;
     box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.312);
     border-radius: 10px;
     padding: 20px;
+    width: 100%;
 }
 
 /*--- User Status ---*/
@@ -93,6 +98,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .total_progress_bar::before {
@@ -110,6 +116,7 @@
     justify-content: center;
     align-items: center;
     z-index: 2;
+    
 }
 
 /*--- Progress Bar Solved Graph---*/
@@ -122,6 +129,7 @@
     box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.312);
     border-radius: 10px;
     padding: 20px;
+    width: 100%;
 }
 
 .leet_code_solved {
@@ -143,7 +151,8 @@
 }
 
 .progress_bar {
-    width: 500px;
+    max-width: 600px;
+    width: 100%;
     height: 4px;
     position: relative;
     border-radius: 10px
@@ -173,3 +182,13 @@
     border-radius: 10px
 }
 
+@media only screen and (max-width: 400px) {
+    .leet_code_body {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .leetcode_body {
+        padding: 20px;
+        text-align: center;
+    }
+}

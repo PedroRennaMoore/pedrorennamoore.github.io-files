@@ -41,7 +41,7 @@ function LeetcodeApi(props) {
     }
 
     return(
-        <div className="leetcode_section">
+        <div id="leetcode_section" className="leetcode_section">
             <div className={`leetcode_content ${props.active}`}>
                 <div className="leetcode_header">
                     <img src={LeetcodeIcon} width="30" alt="" />

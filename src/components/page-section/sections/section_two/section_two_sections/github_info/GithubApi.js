@@ -35,13 +35,40 @@ function GithubApi(props) {
     }
 
     return(
-        <div className="github_section">
+        <div id="github_section" className="github_section">
             <div className={`github_content ${props.active}`}>
                 <div className="github_header">
                     <FontAwesomeIcon icon={faGithub} fontSize="30" className="leet_code_icon" color="white" />
                     <h3>GitHub</h3>
                 </div>
                 <div className="github_body">
+                    <div className="github_repositories_content">
+                            <div className="repositories_title">
+                                <img width="15" src={RepositoryIcon} alt="" />
+                                <h4>Repositories</h4>
+                            </div>
+                            <div className="github_repositories">
+                                <ul>
+                                    {gitRepositories.map(repository => {
+                                        return <li key={repository.id}>
+                                                    <h3><a
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        href={`https://github.com/PedroRennaMoore/${repository.name}`}>{repository.name}
+                                                    </a></h3>
+                                                    <div className="github_repository_info_two">
+                                                        <p>Created: <b>{repository.created_at.slice(0, 10)}</b></p>
+                                                        <p>Owner: <b>{repository.owner.login}</b></p>
+                                                        <div className="repository_language">
+                                                            <p><b>{repository.language}</b></p>
+                                                            <span className={changeLanguageColor(repository.language)}></span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                    })}
+                                </ul>
+                            </div>
+                    </div>
                     <div className="last_github_content">
                         <div className="last_title">
                             <img width="15" src={RepositoryIcon} alt="" />
@@ -57,31 +84,6 @@ function GithubApi(props) {
                                 })}
                             </ul>
                         </div>
-                    </div>
-                    <div className="github_repositories_content">
-                            <div className="repositories_title">
-                                <img width="15" src={RepositoryIcon} alt="" />
-                                <h4>Repositories</h4>
-                            </div>
-                            <div className="github_repositories">
-                                <ul>
-                                    {gitRepositories.map(repository => {
-                                        return <li key={repository.id}>
-                                                    <h3><a
-                                                        target="_blank"
-                                                        rel="noreferrer"
-                                                        href={`https://github.com/PedroRennaMoore/${repository.name}`}>{repository.name}
-                                                    </a></h3>
-                                                    <p className="github_repository_info_two">
-                                                        Created: <b>{repository.created_at.slice(0, 10)}</b>
-                                                        | Owner: <b>{repository.owner.login}</b>
-                                                        | <b>{repository.language}</b>
-                                                        <div className={changeLanguageColor(repository.language)}></div>
-                                                    </p>
-                                                </li>
-                                    })}
-                                </ul>
-                            </div>
                     </div>
                 </div>   
             </div>

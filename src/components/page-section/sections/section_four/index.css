@@ -1,0 +1,158 @@
+.section_four_container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 110px 20px 0 20px;
+    position: relative;
+    z-index: 0;
+}
+
+.section_four_content {
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+
+.contact_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    opacity: 0;
+}
+
+.contact_info.active {
+    animation: showInfo 1s ease .2s forwards
+}
+
+@keyframes showInfo {
+    from {transform: translateY(400px);}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+.contact_email p {
+    font-size: 20px;
+    color: #313638;
+    font-weight: 500;
+}
+
+.board_neon p {
+    font-size: 23px;
+    color: #E4B363;
+    animation: flicker 1.5s infinite alternate ease;
+    font-weight: 600;
+}
+
+@keyframes flicker {
+    to {transform: scale(1, 1);}
+    from {transform: scale(1.1, 1.1);}
+}
+
+  
+.contact_form {
+    background-color: #E8E9EB;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.508);
+    border-radius: 10px;
+    display: flex;
+    max-width: 500px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;;
+    justify-content: center;
+    opacity: 0;
+}
+
+.contact_form.active {
+    animation: showForm 1s ease forwards
+}
+
+@keyframes showForm {
+    from {transform: translateX(400px);}
+    to {transform: translateX(0); opacity: 1;}
+}
+
+.contact_form h3 {
+    font-weight: 500;
+    color: #313638;
+    font-weight: 600;
+}
+
+.contact_form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.contact_form textarea {
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.388);
+    resize: none;
+    padding: 15px;
+    width: 100%;
+    transition: 1s all;
+}
+
+.contact_form textarea:focus {
+    background-color: rgb(241, 241, 241);
+    outline: none;
+}
+
+.submit_button {
+    padding: 10px;
+    background-color: #EF6461;
+    color: white ;
+    border: none;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.388);
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+.submit_button:hover {
+    outline: 3px solid rgb(7, 91, 193);
+    color: rgb(7, 91, 193) ;
+
+}
+
+@media only screen and (max-width: 850px) {
+    .contact_form textarea {
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .contact_email p {
+        font-size: 14px;
+    }
+    .board_neon p {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+
+    .section_four_content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .contact_form {
+        padding: 15px;
+    }
+}
+  
+
+

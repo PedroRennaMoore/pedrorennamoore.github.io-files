@@ -9,54 +9,65 @@ import SectionThree from "../page-section/sections/section_three";
 import SectionFour from "../page-section/sections/section_four";
 import Header from "../shared/header";
 
+const pageSections = ["#home","#about", "#projects", "#contact"]
+
 function PageContainer() {
 
-    const [homeActive, setHomeActive] = useState("")
-    const [portifolioActive, setPortifolioActive] = useState("")
-    const [contactActive, setContactActive] = useState("")
 
+    const [activeSection, setActiveSection] = useState(pageSections[0])
+    
     function sectionEffect() {
-        const pageSections = document.querySelectorAll(".page_section")
-        const [ homeSection, aboutSection, portifolioSection, contactSection ] = pageSections
-        
-        if(homeSection.getBoundingClientRect().top > -200 && homeSection.getBoundingClientRect().top < 200) {
-            setHomeActive("active")
-        } else {setHomeActive("")}
+        pageSections.forEach(pageSection => {
+            let sectionDiv = document.querySelector(pageSection)
+            if(sectionDiv.getBoundingClientRect().top === 0 ) {
+                setActiveSection(pageSection)
+            }
+        })
 
-        if(portifolioSection.getBoundingClientRect().top > -200 && portifolioSection.getBoundingClientRect().top < 200) {
-            setPortifolioActive("active")
-        } else {setPortifolioActive("")}
-
-        if(contactSection.getBoundingClientRect().top > -200 && contactSection.getBoundingClientRect().top < 200) {
-            setContactActive("active")
-        } else {setContactActive("")}
-
+        let sectionTwoTop = document.querySelector(".section_two").getBoundingClientRect().top
+        if(sectionTwoTop > -200 && sectionTwoTop < 200) {
+            let dots = document.querySelectorAll('.dots')
+            dots.forEach(dot => {
+                dot.style.borderColor = "black"
+            })
+        } else {
+            let dots = document.querySelectorAll('.dots')
+            dots.forEach(dot => {
+                dot.style.borderColor= "white"
+            })
+        }
     }
 
     useEffect(() => {
-        let sectionContainer = document.querySelector(".scroll_container")
-        sectionContainer.addEventListener("scroll", sectionEffect)
+        const scrolllContainer = document.querySelector(".scroll_container");
+    
+        scrolllContainer.addEventListener("scroll", sectionEffect);
+
+      
         return () => {
-            sectionContainer.removeEventListener("scroll", sectionEffect)
-        }
-    }, [])
+          
+            scrolllContainer.removeEventListener("scroll", sectionEffect);
+
+        };
+      }, []);
+
     return (
         <div className="scrollers scroll_container">
             <Header/>
             <PageSection styles="section_one" id="home">
-                <SectionOne active={homeActive}/>
+                <SectionOne active={activeSection === "#home" ? "active" : ""}/>
             </PageSection>
                 
             <PageSection styles="section_two" id="about">
                 <SectionTwo/>
             </PageSection>
             
-            <PageSection styles="section_three" id="portifolio">
-                <SectionThree active={portifolioActive}/>
+            <PageSection styles="section_three" id="projects">
+                <SectionThree active={activeSection === "#projects" ? "active" : ""}/>
             </PageSection>
 
             <PageSection styles="section_four" id="contact">
-                <SectionFour active={contactActive}/>
+                <SectionFour active={activeSection === "#contact" ? "active" : ""}/>
             </PageSection>
         </div>
     )
